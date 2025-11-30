@@ -2,7 +2,7 @@ import ScrollAnimation from "./ScrollAnimation";
 
 export default function TimeCapsule() {
   return (
-    <section className="section-container">
+    <section id="time-capsule" className="section-container">
       {/* Section Title */}
       <ScrollAnimation>
         <div className="text-center mb-16">

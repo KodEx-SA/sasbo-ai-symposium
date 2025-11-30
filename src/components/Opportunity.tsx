@@ -164,7 +164,7 @@ export default function Opportunity() {
   ];
 
   return (
-    <section className="section-container relative overflow-hidden">
+    <section id="opportunity" className="section-container relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-red-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
       <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary-cyan/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
