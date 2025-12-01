@@ -2,6 +2,7 @@
 
 import ScrollAnimation from "./ScrollAnimation";
 import { motion } from "framer-motion";
+import NetworkNodes from "./NetworkNodes";
 
 export default function HumanSide() {
   const missionPoints = [
@@ -133,78 +134,6 @@ export default function HumanSide() {
                 </p>
               </div>
             </div>
-
-            {/* Mission Statement */}
-            <div className="space-y-4">
-              <p className="text-gray-300 leading-relaxed text-lg">
-                As the largest financial sector union in South Africa, Sasbo
-                represents over{" "}
-                <span className="text-white font-semibold">75,000 workers</span>{" "}
-                navigating one of the most AI-disrupted industries in the
-                country.
-              </p>
-
-              <p className="text-gray-300 leading-relaxed">
-                We cannot afford to stand idle while AI sweeps through our
-                sector—our mandate is to ensure that workers aren't left behind
-                but are instead{" "}
-                <span className="text-white font-semibold">
-                  equipped, empowered, and protected
-                </span>{" "}
-                as change unfolds.
-              </p>
-
-              <div className="p-6 bg-gradient-to-br from-blue-900/40 to-cyan-900/20 rounded-xl border border-primary-cyan/30 backdrop-blur-sm">
-                <p className="text-gray-300 leading-relaxed">
-                  <span className="font-bold text-white block mb-2">
-                    Our Vision
-                  </span>
-                  This Symposium reflects a singular vision: to position Sasbo
-                  at the forefront of ethical, worker-focused AI transformation
-                  across South Africa's financial sector.
-                </p>
-              </div>
-            </div>
-
-            {/* Core Values */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              {coreValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -5 }}
-                  className="p-4 bg-blue-900/30 rounded-xl border border-primary-light-blue/20 hover:border-primary-cyan/50 transition-all text-center"
-                >
-                  <div className="w-12 h-12 mx-auto mb-3 bg-primary-cyan/20 rounded-lg flex items-center justify-center text-primary-cyan">
-                    {value.icon}
-                  </div>
-                  <h4 className="font-bold text-white mb-1">{value.title}</h4>
-                  <p className="text-xs text-gray-400">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <motion.a
-              href="#conversations"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold transition-all border border-white/20 hover:border-primary-cyan/50"
-            >
-              Explore Our Conversations
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </motion.a>
           </div>
         </ScrollAnimation>
 
@@ -292,8 +221,8 @@ export default function HumanSide() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <p className="text-gray-300 italic leading-relaxed">
-                "Workers won't be casualties of AI transformation, they'll be the
-                architects of change."
+                "Workers won't be casualties of AI transformation, they'll be
+                the architects of change."
               </p>
               <p className="text-primary-cyan font-semibold mt-3 text-sm">
                 - Sasbo Leadership
