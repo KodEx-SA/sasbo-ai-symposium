@@ -57,7 +57,7 @@ export default function Hero() {
           className="max-w-5xl mx-auto"
         >
           {/* Logo */}
-          <motion.div 
+          {/* <motion.div 
             variants={fadeIn}
             className="flex justify-center mb-12"
           >
@@ -67,7 +67,7 @@ export default function Hero() {
             >
               <span className="text-2xl">🏢</span>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Title */}
           <motion.h1 
