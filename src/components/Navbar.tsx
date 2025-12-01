@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import sasboImg from "@/assets/images/sasbo-logo.jpeg";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -152,7 +154,8 @@ export default function Navbar() {
 
       // Calculate scroll progress
       const windowHeight =
-        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       const scrolled = (scrollPosition / windowHeight) * 100;
       setScrollProgress(scrolled);
 
@@ -166,7 +169,8 @@ export default function Navbar() {
         "features",
         // "register",
       ];
-      const currentSection = sections.find((section) => { // Check if section is in viewport
+      const currentSection = sections.find((section) => {
+        // Check if section is in viewport
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect(); // Get section position
@@ -175,7 +179,8 @@ export default function Navbar() {
         return false;
       });
 
-      if (currentSection) { // Update active section
+      if (currentSection) {
+        // Update active section
         setActiveSection(currentSection);
       }
     };
@@ -185,7 +190,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = ( // Smooth scroll handler
+  const handleNavClick = (
+    // Smooth scroll handler
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
@@ -193,7 +199,8 @@ export default function Navbar() {
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
 
-    if (element) { // Smooth scroll to section
+    if (element) {
+      // Smooth scroll to section
       const offsetTop = element.offsetTop - 80;
       window.scrollTo({
         top: offsetTop,
@@ -232,46 +239,37 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="relative w-12 h-12 bg-gradient-to-br from-primary-cyan to-primary-light-blue rounded-xl flex items-center justify-center shadow-lg shadow-primary-cyan/30"
-              >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
-                </svg>
-                {/* Pulse effect */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.5, 0, 0.5],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-primary-cyan to-primary-light-blue rounded-xl"
+              <div className="relative w-12 h-12">
+                <Image
+                  src={sasboImg}
+                  alt="Sasbo Logo"
+                  fill
+                  className="object-contain"
+                  priority
                 />
-              </motion.div>
+              </div>
               <div className="hidden sm:flex flex-col">
-                <span className="font-bold text-lg leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                <span className="font-bold text-m leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Sasbo
                 </span>
                 <span className="text-xs text-primary-cyan font-semibold">
-                  AI Symposium 2026
+                  Finance Union
                 </span>
               </div>
+
+              {/* Pulse effect */}
+              {/* <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 bg-gradient-to-br from-primary-cyan to-primary-light-blue rounded-xl"
+              /> */}
             </motion.a>
 
             {/* Desktop Navigation */}

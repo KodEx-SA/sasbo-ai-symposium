@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import sasboLogo from "@/assets/images/sasbo-logo.jpeg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -78,40 +80,19 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-cyan to-primary-light-blue rounded-lg flex items-center justify-center">
-                  <span className="text-2xl">🏢</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-xl">Sasbo</span>
-                  <span className="text-xs text-gray-400">
-                    AI Symposium 2026
-                  </span>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Shaping the Future of Work in South Africa's Financial Sector
-                through ethical AI transformation and worker empowerment.
-              </p>
-              {/* Newsletter Signup */}
-              {/* <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 rounded-lg bg-primary-dark/50 border border-primary-light-blue/30 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-primary-cyan transition-colors"
-                />
-                <button className="bg-gradient-to-r from-primary-cyan to-primary-light-blue text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm">
-                  Subscribe
-                </button>
-              </div> */}
-            </motion.div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="relative w-12 h-12">
+              <Image
+                src= {sasboLogo}
+                alt="Sasbo Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl">Sasbo</span>
+              <span className="text-xs text-gray-400">The Finance Union</span>
+            </div>
           </div>
 
           {/* Quick Links */}
