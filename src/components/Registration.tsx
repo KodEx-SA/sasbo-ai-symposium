@@ -1,4 +1,6 @@
 "use client";
+import { supabase } from "../../supabaseClient";
+
 
 import { useState } from "react";
 import ScrollAnimation from "./ScrollAnimation";
@@ -28,29 +30,44 @@ export default function Registration() {
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const { error } = await supabase.from("registrations").insert([
+    {
+      full_name: formData.name,
+      email: formData.email,
+      organization: formData.organization,
+      role: formData.role,
+      interests: formData.interests,
+      message: formData.message || null,
+    },
+  ]);
 
-    console.log("Form submitted:", formData);
-    alert(
-      "Thank you for registering! We will contact you soon with confirmation details."
-    );
+  if (error) {
+    console.error(error);
+    alert("Something went wrong. Please try again.");
     setIsSubmitting(false);
+    return;
+  }
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      organization: "",
-      phone: "",
-      role: "",
-      interests: [],
-      message: "",
-    });
-  };
+  alert(
+    "Thank you for registering! We will contact you soon with confirmation details."
+  );
+
+  setFormData({
+    name: "",
+    email: "",
+    organization: "",
+    phone: "",
+    role: "",
+    interests: [],
+    message: "",
+  });
+
+  setIsSubmitting(false);
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<
