@@ -596,7 +596,7 @@ export default function Registration() {
                             }}
                             className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
                           />
-                          Processing...
+                          Processing....
                         </>
                       ) : (
                         <>
